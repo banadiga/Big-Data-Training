@@ -15,6 +15,8 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
 ## Configuring SSH
 ssh-keygen -t rsa -P "" -f $HOME/.ssh/id_rsa
 
+cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+
 ssh-keyscan -H localhost >> ~/.ssh/known_hosts
 ssh-keyscan -H 0.0.0.0 >> ~/.ssh/known_hosts
 
@@ -106,10 +108,10 @@ EOT
 ## Start all Hadoop daemons
 hdfs namenode -format
 
-/usr/local/hadoop/sbin/start-dfs.sh
-/usr/local/hadoop/sbin/start-yarn.sh
+cd /usr/local/hadoop/sbin/
 
-jps
+start-dfs.sh
+start-yarn.sh
 
-netstat -plten | grep java
+echo "Done!"
 

@@ -30,11 +30,23 @@ Vagrant.configure(2) do |config|
     dh.vm.synced_folder '.', '/hadoop-host', :disabled => false
     dh.vm.network :private_network, :ip => BRIDGE_NETWORK, :netmask => BRIDGE_NETMASK
 
-    dh.vm.network "forwarded_port", :guest => 50070, :host => 50070
-    dh.vm.network "forwarded_port", :guest => 50090, :host => 50090
+    dh.vm.network "forwarded_port", :guest => 8030, :host => 8030 # start-yarn.sh
+    dh.vm.network "forwarded_port", :guest => 8031, :host => 8031 # start-yarn.sh
+    dh.vm.network "forwarded_port", :guest => 8032, :host => 8032 # start-yarn.sh
+    dh.vm.network "forwarded_port", :guest => 8033, :host => 8033 # start-yarn.sh
 
-    dh.vm.network "forwarded_port", :guest => 8088, :host => 8088
-    dh.vm.network "forwarded_port", :guest => 8042, :host => 8042
+    dh.vm.network "forwarded_port", :guest => 8040, :host => 8040 # start-yarn.sh
+    dh.vm.network "forwarded_port", :guest => 8042, :host => 8042 # start-yarn.sh
+    dh.vm.network "forwarded_port", :guest => 8088, :host => 8088 # start-yarn.sh
+
+    dh.vm.network "forwarded_port", :guest => 9000, :host => 9000 # start-dfs.sh
+
+    dh.vm.network "forwarded_port", :guest => 50010, :host => 50010 # start-dfs.sh
+    dh.vm.network "forwarded_port", :guest => 50020, :host => 50020 # start-dfs.sh
+    dh.vm.network "forwarded_port", :guest => 50070, :host => 50070 # start-dfs.sh
+    dh.vm.network "forwarded_port", :guest => 50075, :host => 50075 # start-dfs.sh
+    dh.vm.network "forwarded_port", :guest => 50090, :host => 50090 # start-dfs.sh
+
 
     dh.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
