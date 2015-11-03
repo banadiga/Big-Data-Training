@@ -2,7 +2,6 @@
 
 ## Starting hadoop host
 ```
-cd hadoop-host
 vagrant up
 ```
 
