@@ -26,4 +26,3 @@ sudo mkdir -p /usr/local/hadoop_tmp/hdfs/datanode
 
 ## Again assign ownership of this Hadoop temp folder to Hadoop user
 sudo chown hduser:hadoop -R /usr/local/hadoop_tmp/
-

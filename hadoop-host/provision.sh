@@ -22,4 +22,3 @@ sudo apt-get upgrade -y -qq
 su -s /bin/bash -c "/hadoop-host/hadoop-configure.sh" hduser
 
 echo "Done!"
-
