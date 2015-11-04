@@ -10,16 +10,16 @@ mvn clean install
 
 ## Run
 
-Run in `hadoop-host` as `hduser` user.
+Run in `hadoop-host` as `hduser` user:
 
 ```bash
 vagrant ssh
 sudo su hduser
+cd /hadoop-app
 ```
 
-run `run.sh`
+Display information about files and directory contains in `hdfs://localhost:9000/`
 
 ```bash
-cd /hadoop-app
 . run.sh
 ```
