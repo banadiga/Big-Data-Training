@@ -104,14 +104,9 @@ cat <<EOT > mapred-site.xml
 </configuration>
 EOT
 
-
-## Start all Hadoop daemons
 hdfs namenode -format
 
-cd /usr/local/hadoop/sbin/
-
-start-dfs.sh
-start-yarn.sh
+# Hadoop start servers
+. /hadoop-host/hadoop-start-servers.sh
 
 echo "Done!"
-

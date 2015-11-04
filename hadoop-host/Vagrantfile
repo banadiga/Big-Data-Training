@@ -29,6 +29,7 @@ Vagrant.configure(2) do |config|
     dh.vm.box = 'ubuntu/trusty64'
     dh.vm.synced_folder '.', '/hadoop-host', :disabled => false
     dh.vm.synced_folder '../hadoop-ops', '/hadoop-ops', :disabled => false
+    dh.vm.synced_folder '../hadoop-app', '/hadoop-app', :disabled => false
 
     dh.vm.network :private_network, :ip => BRIDGE_NETWORK, :netmask => BRIDGE_NETMASK
 
@@ -63,4 +64,3 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "provision.sh"
 
 end
-
