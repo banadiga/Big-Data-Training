@@ -105,8 +105,3 @@ cat <<EOT > mapred-site.xml
 EOT
 
 hdfs namenode -format
-
-# Hadoop start servers
-. /hadoop-host/hadoop-start-servers.sh
-
-echo "Done!"

@@ -21,4 +21,7 @@ sudo apt-get upgrade -y -qq
 # Configure hadoop
 su -s /bin/bash -c "/hadoop-host/hadoop-configure.sh" hduser
 
+# Hadoop start servers
+su -s /bin/bash -c "/hadoop-host/hadoop-start-servers.sh" hduser
+
 echo "Done!"
