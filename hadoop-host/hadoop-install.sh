@@ -17,6 +17,7 @@ sudo wget http://mirrors.sonic.net/apache/hadoop/common/hadoop-${HD_VERSION}/had
 sudo tar -xzvf hadoop-${HD_VERSION}.tar.gz
 
 ## Move hadoop-version to hadoop folder
+sudo rm -rf /usr/local/hadoop
 sudo mv hadoop-${HD_VERSION} /usr/local/hadoop
 
 ## Assign ownership of this folder to Hadoop user

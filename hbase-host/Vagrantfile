@@ -1,0 +1,55 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.require_version '>= 1.6.5'
+
+unless Vagrant.has_plugin?('nugrant')
+  warn "[\e[1m\e[31mERROR\e[0m]: Please run: vagrant plugin install nugrant"
+  exit -1
+end
+
+BRIDGE_NETWORK = '10.2.0.101'
+BRIDGE_NETMASK = '255.255.0.0'
+
+def setup_defaults()
+  {
+      'box' => {
+          'memory' => '2048',
+          'cpus' => '2'
+      }
+  }
+end
+
+Vagrant.configure(2) do |config|
+
+  config.user.defaults = setup_defaults
+
+  config.vm.define 'hbase-host', {:primary => true} do |dh|
+
+    dh.vm.box = 'ubuntu/trusty64'
+    dh.vm.hostname = 'hbase-host'
+    dh.vm.synced_folder '.', '/hbase-host', :disabled => false
+    dh.vm.synced_folder '../hbase-ops', '/hbase-ops', :disabled => false
+    dh.vm.synced_folder '../hbase-app', '/hbase-app', :disabled => false
+
+    dh.vm.network :private_network, :ip => BRIDGE_NETWORK, :netmask => BRIDGE_NETMASK
+
+    dh.vm.network "forwarded_port", :guest => 60010, :host => 60010 #
+    dh.vm.network "forwarded_port", :guest => 60030, :host => 60030 #
+
+    dh.vm.network "forwarded_port", :guest => 2181, :host => 2181 #
+
+
+    dh.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      vb.memory = config.user.box.memory
+      vb.cpus = config.user.box.cpus
+    end
+  end
+
+  config.vm.provision 'shell', :inline =>
+    "ps aux | grep 'sshd:' | awk '{print $2}' | xargs kill"
+
+  config.vm.provision "shell", path: "provision.sh"
+
+end
