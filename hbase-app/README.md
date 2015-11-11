@@ -1,6 +1,6 @@
 # HBase simple app
 
-Display records fro HBase
+Display records from HBase
 
 ## Build
 
