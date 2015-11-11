@@ -12,6 +12,12 @@
  * [Try HBase thru command line](https://github.com/banadiga/Big-Data-Training/tree/master/hbase-ops)
  * [Try HBase thru Java](https://github.com/banadiga/Big-Data-Training/tree/master/hbase-app)
 
+## Redis
+
+* [Starting Redis host](https://github.com/banadiga/Big-Data-Training/tree/master/redis-host)
+ * [Try redis thru command line](https://github.com/banadiga/Big-Data-Training/tree/master/redis-ops)
+ * [Try redis thru Java](https://github.com/banadiga/Big-Data-Training/tree/master/redis-app)
+
 ## **TBD**
 
 * [My project](https://github.com/banadiga/Big-Data-Training/tree/master/my-project)
