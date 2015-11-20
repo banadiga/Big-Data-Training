@@ -14,8 +14,8 @@ BRIDGE_NETMASK = '255.255.0.0'
 def setup_defaults()
   {
       'box' => {
-          'memory' => '2048',
-          'cpus' => '2'
+          'memory' => '1024',
+          'cpus' => '1'
       }
   }
 end
@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
   config.vm.define 'hbase-host', {:primary => true} do |dh|
 
     dh.vm.box = 'ubuntu/trusty64'
-    dh.vm.hostname = 'hbase-host'
+    dh.vm.hostname = 'master'
     dh.vm.synced_folder '.', '/hbase-host', :disabled => false
     dh.vm.synced_folder '../hbase-ops', '/hbase-ops', :disabled => false
     dh.vm.synced_folder '../hbase-app', '/hbase-app', :disabled => false
@@ -41,9 +41,10 @@ Vagrant.configure(2) do |config|
 
 
     dh.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      vb.name = 'HBase host'
       vb.memory = config.user.box.memory
       vb.cpus = config.user.box.cpus
+      vb.customize ["modifyvm", :id, "--groups", "/Big-Data-Training", "--nicpromisc2", "allow-all"]
     end
   end
 

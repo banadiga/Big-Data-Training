@@ -18,6 +18,7 @@
  * [Try redis thru command line](https://github.com/banadiga/Big-Data-Training/tree/master/redis-ops)
  * [Try redis thru Java](https://github.com/banadiga/Big-Data-Training/tree/master/redis-app)
 
-## **TBD**
+## **CourseWork**
 
-* [My project](https://github.com/banadiga/Big-Data-Training/tree/master/my-project)
+* [Description](https://github.com/banadiga/Big-Data-Training/tree/master/coursework)
+* Implementation TBD

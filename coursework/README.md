@@ -10,13 +10,13 @@ TBD
 
 TBD
 
-[ ] Hdoop
-[ ] HBase
+* [ ] Hdoop
+* [ ] HBase
 
 
 # Side goals
 
 TBD
 
-[ ] Vagrant
-[ ] Docer
+* [ ] Vagrant
+* [ ] Docer
