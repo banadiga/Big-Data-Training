@@ -1,6 +1,8 @@
-# Name TBD
+# FortNet report system
 
 Description TBD...
+
+[Implementation](https://github.com/banadiga/fortnet-reporting-system)
 
 # Prototype
 
@@ -8,7 +10,7 @@ TBD
 
 # Goals
 
-TBD
+## Technical goals
 
 * [ ] Hdoop
 * [ ] HBase
@@ -16,7 +18,11 @@ TBD
 
 # Side goals
 
-TBD
+## Dev goals
+
+* [ ] Spring-boot
+
+## DevOps goals
 
 * [ ] Vagrant
 * [ ] Docer
