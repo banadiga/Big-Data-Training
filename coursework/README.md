@@ -1,8 +1,8 @@
-# FortNet report system
+# Access control reporting system
 
 Description TBD...
 
-[Implementation](https://github.com/banadiga/fortnet-reporting-system)
+[Implementation](https://github.com/banadiga/access-control-reporting-system)
 
 # Prototype
 

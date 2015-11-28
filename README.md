@@ -2,9 +2,10 @@
 
 ## Hadoop
 
-* [Starting hadoop host](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-host)
- * [Try hadoop thru command line](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-ops)
- * [Try hadoop thru Java](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-app)
+* [Starting hadoop/hdfs host](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-host)
+ * [Try hdfs thru command line](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-ops)
+ * [Try hdfs thru Java](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-app)
+ * [Try MapReduce app](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-streaming-bash)
 
 ## HBase
 
@@ -21,4 +22,4 @@
 ## **CourseWork**
 
 * [Description](https://github.com/banadiga/Big-Data-Training/tree/master/coursework)
-* [Implementation](https://github.com/banadiga/fortnet-reporting-system)
+* [Implementation](https://github.com/banadiga/access-control-reporting-system)

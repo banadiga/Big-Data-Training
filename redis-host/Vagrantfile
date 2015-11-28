@@ -8,7 +8,7 @@ unless Vagrant.has_plugin?('nugrant')
   exit -1
 end
 
-BRIDGE_NETWORK = '10.2.0.100'
+BRIDGE_NETWORK = '10.1.0.100'
 BRIDGE_NETMASK = '255.255.0.0'
 
 def setup_defaults()
