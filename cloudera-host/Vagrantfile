@@ -1,0 +1,54 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.require_version '>= 1.6.5'
+
+unless Vagrant.has_plugin?('nugrant')
+  warn "[\e[1m\e[31mERROR\e[0m]: Please run: vagrant plugin install nugrant"
+  exit -1
+end
+
+BRIDGE_NETWORK = '10.3.0.100'
+BRIDGE_NETMASK = '255.255.0.0'
+
+def setup_defaults()
+  {
+      'master' => {
+          'memory' => '4096',
+          'cpus' => '2'
+      },
+      'customize' => ["modifyvm", :id, "--groups", "/Big-Data-Training", "--nicpromisc2", "allow-all"],
+      'hostmanager' => {
+          'enabled' => false,
+          'manage_host' => true,
+          'include_offline' => true,
+          'ignore_private_ip' => false,
+      }
+  }
+end
+
+Vagrant.configure(2) do |config|
+
+  config.user.defaults = setup_defaults
+
+
+  # Manage /etc/hosts on host and VMs
+  config.hostmanager.enabled = config.user.hostmanager.enabled
+  config.hostmanager.manage_host = config.user.hostmanager.manage_host
+  config.hostmanager.include_offline = config.user.hostmanager.include_offline
+  config.hostmanager.ignore_private_ip = config.user.hostmanager.ignore_private_ip
+  config.vm.box = "quickstart/cdh"
+
+  config.vm.define 'cloudera-master', {:primary => true} do |master|
+
+    master.vm.network :private_network, :ip => BRIDGE_NETWORK, :netmask => BRIDGE_NETMASK
+    master.vm.provider :virtualbox do |vb|
+      vb.name = 'Cluster master'
+      vb.memory = config.user.master.memory
+      vb.cpus = config.user.master.cpus
+      vb.customize config.user.customize
+    end
+    master.vm.provision :hostmanager
+  end
+
+end

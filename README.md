@@ -1,5 +1,10 @@
 # Big-Data-Training
 
+
+## cloudera
+
+* [Cloudere host](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-host)
+
 ## Hadoop
 
 * [Starting hadoop/hdfs host](https://github.com/banadiga/Big-Data-Training/tree/master/hadoop-host)
